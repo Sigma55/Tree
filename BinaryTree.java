@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinaryTree {
 
     Node root;
@@ -59,7 +62,49 @@ public class BinaryTree {
     }
 
     //bfs
+    private void bfsPrivate(Node curr){
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(curr);
+        while(!queue.isEmpty()){
+            curr = queue.remove();
+            System.out.println(curr.data);
+            if(curr.left != null){
+                queue.add(curr.left);
+            }
+            if(curr.right != null){
+                queue.add(curr.right);
+            }
+        }
+
+    }
+    public void bfs(){
+        bfsPrivate(this.root);
+    }
 
 
-    //max
+    //max recursive
+    private int maxPrivate(Node curr){
+        if(curr.right == null){
+            return curr.data;
+        }
+        return maxPrivate(curr.right);
+
+    }
+
+    public int maxRecursive(){
+        return maxPrivate(this.root);
+    }
+
+    //max iterative
+    private int maxPriv(Node curr){
+        while(curr.right != null){
+            curr = curr.right;
+        }
+        return curr.data;
+
+    }
+    public int maxIterative(){
+        return maxPriv(this.root);
+
+    }
 }
