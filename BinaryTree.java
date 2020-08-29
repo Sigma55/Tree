@@ -107,4 +107,33 @@ public class BinaryTree {
         return maxPriv(this.root);
 
     }
+
+    //invert tree iterative
+    private Node invertPrivate(Node curr){
+        if(curr == null){
+            return curr;
+        }
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(curr);
+        while(!queue.isEmpty()){
+            curr = queue.remove();
+            //swap
+            Node tmp = curr.left;
+            curr.left = curr.right;
+            curr.right = tmp;
+
+            if(curr.left != null){
+                queue.add(curr.left);
+            }
+            if(curr.right != null){
+                queue.add(curr.right);
+            }
+
+        }
+        return curr;
+    }
+
+    public Node invert(){
+       return invertPrivate(this.root);
+    }
 }

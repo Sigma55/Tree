@@ -3,7 +3,6 @@ public class Main {
        BinaryTree tree = new BinaryTree();
 
         tree.add(50);
-        tree.add(50);
         tree.add(90);
         tree.add(40);
         tree.add(20);
@@ -11,9 +10,11 @@ public class Main {
 
        //tree.inorder2();
        System.out.println(tree.find(45));
-        System.out.println(tree.maxRecursive());
-        System.out.println(tree.maxIterative());
+        //System.out.println(tree.maxRecursive());
+        //System.out.println(tree.maxIterative());
        //tree.bfs();
+        tree.invert();
+        tree.inorder2();
 
 
 
